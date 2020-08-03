@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.pism.juli.admin.mapper.JuliSysRoleResourceMapper">
+  <resultMap id="BaseResultMap" type="cn.com.pism.juli.admin.entity.JuliSysRoleResource">
+    <!--@mbg.generated-->
+    <!--@Table juli_sys_role_resource-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="revision" jdbcType="INTEGER" property="revision" />
+    <result column="union_code" jdbcType="VARCHAR" property="unionCode" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="resource_id" jdbcType="VARCHAR" property="resourceId" />
+    <result column="created_id" jdbcType="VARCHAR" property="createdId" />
+    <result column="created_name" jdbcType="VARCHAR" property="createdName" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_id" jdbcType="VARCHAR" property="updatedId" />
+    <result column="updated_name" jdbcType="VARCHAR" property="updatedName" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="last_modify" jdbcType="TIMESTAMP" property="lastModify" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, revision, union_code, role_id, resource_id, created_id, created_name, created_time, 
+    updated_id, updated_name, updated_time, deleted, last_modify
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update juli_sys_role_resource
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="revision = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.revision,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="union_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.unionCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="role_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.roleId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="resource_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.resourceId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="created_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.createdId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="created_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.createdName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="created_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.createdTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="updated_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="updated_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="updated_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="deleted = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.deleted,jdbcType=BIT}
+        </foreach>
+      </trim>
+      <trim prefix="last_modify = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.lastModify,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update juli_sys_role_resource
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="revision = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.revision != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.revision,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="union_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.unionCode != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.unionCode,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="role_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.roleId != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.roleId,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="resource_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.resourceId != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.resourceId,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="created_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createdId != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.createdId,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="created_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createdName != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.createdName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="created_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createdTime != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.createdTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="updated_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.updatedId != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedId,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="updated_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.updatedName != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="updated_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.updatedTime != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="deleted = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.deleted != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.deleted,jdbcType=BIT}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="last_modify = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.lastModify != null">
+            when id = #{item.id,jdbcType=VARCHAR} then #{item.lastModify,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into juli_sys_role_resource
+    (id, revision, union_code, role_id, resource_id, created_id, created_name, created_time, 
+      updated_id, updated_name, updated_time, deleted, last_modify)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id,jdbcType=VARCHAR}, #{item.revision,jdbcType=INTEGER}, #{item.unionCode,jdbcType=VARCHAR}, 
+        #{item.roleId,jdbcType=VARCHAR}, #{item.resourceId,jdbcType=VARCHAR}, #{item.createdId,jdbcType=VARCHAR}, 
+        #{item.createdName,jdbcType=VARCHAR}, #{item.createdTime,jdbcType=TIMESTAMP}, #{item.updatedId,jdbcType=VARCHAR}, 
+        #{item.updatedName,jdbcType=VARCHAR}, #{item.updatedTime,jdbcType=TIMESTAMP}, #{item.deleted,jdbcType=BIT}, 
+        #{item.lastModify,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" parameterType="cn.com.pism.juli.admin.entity.JuliSysRoleResource">
+    <!--@mbg.generated-->
+    insert into juli_sys_role_resource
+    (id, revision, union_code, role_id, resource_id, created_id, created_name, created_time, 
+      updated_id, updated_name, updated_time, deleted, last_modify)
+    values
+    (#{id,jdbcType=VARCHAR}, #{revision,jdbcType=INTEGER}, #{unionCode,jdbcType=VARCHAR}, 
+      #{roleId,jdbcType=VARCHAR}, #{resourceId,jdbcType=VARCHAR}, #{createdId,jdbcType=VARCHAR}, 
+      #{createdName,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedId,jdbcType=VARCHAR}, 
+      #{updatedName,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
+      #{lastModify,jdbcType=TIMESTAMP})
+    on duplicate key update 
+    id = #{id,jdbcType=VARCHAR}, 
+    revision = #{revision,jdbcType=INTEGER}, 
+    union_code = #{unionCode,jdbcType=VARCHAR}, 
+    role_id = #{roleId,jdbcType=VARCHAR}, 
+    resource_id = #{resourceId,jdbcType=VARCHAR}, 
+    created_id = #{createdId,jdbcType=VARCHAR}, 
+    created_name = #{createdName,jdbcType=VARCHAR}, 
+    created_time = #{createdTime,jdbcType=TIMESTAMP}, 
+    updated_id = #{updatedId,jdbcType=VARCHAR}, 
+    updated_name = #{updatedName,jdbcType=VARCHAR}, 
+    updated_time = #{updatedTime,jdbcType=TIMESTAMP}, 
+    deleted = #{deleted,jdbcType=BIT}, 
+    last_modify = #{lastModify,jdbcType=TIMESTAMP}
+  </insert>
+  <insert id="insertOrUpdateSelective" parameterType="cn.com.pism.juli.admin.entity.JuliSysRoleResource">
+    <!--@mbg.generated-->
+    insert into juli_sys_role_resource
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="revision != null">
+        revision,
+      </if>
+      <if test="unionCode != null">
+        union_code,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="resourceId != null">
+        resource_id,
+      </if>
+      <if test="createdId != null">
+        created_id,
+      </if>
+      <if test="createdName != null">
+        created_name,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedId != null">
+        updated_id,
+      </if>
+      <if test="updatedName != null">
+        updated_name,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+      <if test="lastModify != null">
+        last_modify,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="revision != null">
+        #{revision,jdbcType=INTEGER},
+      </if>
+      <if test="unionCode != null">
+        #{unionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceId != null">
+        #{resourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdId != null">
+        #{createdId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdName != null">
+        #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedId != null">
+        #{updatedId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedName != null">
+        #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="lastModify != null">
+        #{lastModify,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="revision != null">
+        revision = #{revision,jdbcType=INTEGER},
+      </if>
+      <if test="unionCode != null">
+        union_code = #{unionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceId != null">
+        resource_id = #{resourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdId != null">
+        created_id = #{createdId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdName != null">
+        created_name = #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedId != null">
+        updated_id = #{updatedId,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedName != null">
+        updated_name = #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="lastModify != null">
+        last_modify = #{lastModify,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>
